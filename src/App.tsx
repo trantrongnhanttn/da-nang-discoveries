@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import NominationList from "./pages/NominationList.tsx";
 import Nomination from "./pages/Nomination.tsx";
 import PlaceDetail from "./pages/PlaceDetail.tsx";
 import Rules from "./pages/Rules.tsx";
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/danh-sach" element={<NominationList />} />
           <Route path="/de-cu" element={<Nomination />} />
           <Route path="/dia-diem/:id" element={<PlaceDetail />} />
           <Route path="/the-le" element={<Rules />} />

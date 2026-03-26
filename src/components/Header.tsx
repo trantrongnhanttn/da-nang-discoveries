@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { path: "/", label: "Trang chủ" },
+  { path: "/danh-sach", label: "Danh sách đề cử" },
   { path: "/de-cu", label: "Đề cử" },
   { path: "/the-le", label: "Thể lệ" },
   { path: "/tin-tuc", label: "Tin tức" },
