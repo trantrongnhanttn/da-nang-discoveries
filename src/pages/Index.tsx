@@ -103,7 +103,7 @@ const Index = () => {
                 transition={{ delay: i * 0.05 }}
               >
                 <Link
-                  to={`/danh-sach?category=${cat.id}`}
+                  to={`/hang-muc/${cat.id}`}
                   className={`block ${cat.gradient} rounded-xl p-6 shadow-card hover:shadow-colorful transition-all cursor-pointer hover:-translate-y-1 hover:scale-[1.02] text-center group relative overflow-hidden`}
                 >
                   <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-white/10" />
