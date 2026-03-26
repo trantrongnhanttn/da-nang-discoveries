@@ -85,7 +85,7 @@ const Index = () => {
             className="text-center mb-12"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
-              8 hạng mục
+              6 hạng mục
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
               Các hạng mục <span className="text-gradient-warm">đề cử</span>
