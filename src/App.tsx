@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NominationList from "./pages/NominationList.tsx";
 import Nomination from "./pages/Nomination.tsx";
 import PlaceDetail from "./pages/PlaceDetail.tsx";
+import CategoryDetail from "./pages/CategoryDetail.tsx";
 import Rules from "./pages/Rules.tsx";
 import News from "./pages/News.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/danh-sach" element={<NominationList />} />
           <Route path="/de-cu" element={<Nomination />} />
           <Route path="/dia-diem/:id" element={<PlaceDetail />} />
+          <Route path="/hang-muc/:id" element={<CategoryDetail />} />
           <Route path="/the-le" element={<Rules />} />
           <Route path="/tin-tuc" element={<News />} />
           <Route path="*" element={<NotFound />} />
