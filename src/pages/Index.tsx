@@ -85,7 +85,7 @@ const Index = () => {
             className="text-center mb-12"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
-              8 hạng mục
+              6 hạng mục
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
               Các hạng mục <span className="text-gradient-warm">đề cử</span>
@@ -93,7 +93,7 @@ const Index = () => {
             <p className="text-muted-foreground text-lg">Khám phá và đề cử theo từng chủ đề</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {CATEGORIES.map((cat, i) => (
               <motion.div
                 key={cat.id}
@@ -103,7 +103,7 @@ const Index = () => {
                 transition={{ delay: i * 0.05 }}
               >
                 <Link
-                  to={`/danh-sach?category=${cat.id}`}
+                  to={`/hang-muc/${cat.id}`}
                   className={`block ${cat.gradient} rounded-xl p-6 shadow-card hover:shadow-colorful transition-all cursor-pointer hover:-translate-y-1 hover:scale-[1.02] text-center group relative overflow-hidden`}
                 >
                   <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-white/10" />
