@@ -1,12 +1,12 @@
 export const CATEGORIES = [
-  { id: "am-thuc", name: "Ẩm thực", icon: "🍜", description: "Món ngon đặc sản Đà Nẵng" },
-  { id: "canh-dep", name: "Cảnh đẹp", icon: "🏞️", description: "Danh lam thắng cảnh" },
-  { id: "van-hoa", name: "Văn hóa", icon: "🎭", description: "Di tích lịch sử & văn hóa" },
-  { id: "giai-tri", name: "Giải trí", icon: "🎢", description: "Khu vui chơi & giải trí" },
-  { id: "nghe-thuat", name: "Nghệ thuật", icon: "🎨", description: "Nghệ thuật & thủ công" },
-  { id: "thien-nhien", name: "Thiên nhiên", icon: "🌿", description: "Thiên nhiên hoang sơ" },
-  { id: "bien-dao", name: "Biển đảo", icon: "🏖️", description: "Bãi biển & hải đảo" },
-  { id: "le-hoi", name: "Lễ hội", icon: "🎆", description: "Lễ hội & sự kiện" },
+  { id: "am-thuc", name: "Ẩm thực", icon: "🍜", description: "Món ngon đặc sản Đà Nẵng", gradient: "bg-gradient-sunset", color: "from-orange-500 to-red-500", textColor: "text-orange-600", bgLight: "bg-orange-50", borderColor: "border-orange-200" },
+  { id: "canh-dep", name: "Cảnh đẹp", icon: "🏞️", description: "Danh lam thắng cảnh", gradient: "bg-gradient-ocean", color: "from-blue-500 to-indigo-600", textColor: "text-blue-600", bgLight: "bg-blue-50", borderColor: "border-blue-200" },
+  { id: "van-hoa", name: "Văn hóa", icon: "🎭", description: "Di tích lịch sử & văn hóa", gradient: "bg-gradient-purple", color: "from-purple-500 to-pink-500", textColor: "text-purple-600", bgLight: "bg-purple-50", borderColor: "border-purple-200" },
+  { id: "giai-tri", name: "Giải trí", icon: "🎢", description: "Khu vui chơi & giải trí", gradient: "bg-gradient-coral", color: "from-pink-500 to-rose-500", textColor: "text-pink-600", bgLight: "bg-pink-50", borderColor: "border-pink-200" },
+  { id: "nghe-thuat", name: "Nghệ thuật", icon: "🎨", description: "Nghệ thuật & thủ công", gradient: "bg-gradient-warm", color: "from-amber-500 to-orange-500", textColor: "text-amber-600", bgLight: "bg-amber-50", borderColor: "border-amber-200" },
+  { id: "thien-nhien", name: "Thiên nhiên", icon: "🌿", description: "Thiên nhiên hoang sơ", gradient: "bg-gradient-emerald", color: "from-emerald-500 to-teal-500", textColor: "text-emerald-600", bgLight: "bg-emerald-50", borderColor: "border-emerald-200" },
+  { id: "bien-dao", name: "Biển đảo", icon: "🏖️", description: "Bãi biển & hải đảo", gradient: "bg-gradient-sky", color: "from-cyan-400 to-blue-500", textColor: "text-cyan-600", bgLight: "bg-cyan-50", borderColor: "border-cyan-200" },
+  { id: "le-hoi", name: "Lễ hội", icon: "🎆", description: "Lễ hội & sự kiện", gradient: "bg-gradient-golden", color: "from-yellow-500 to-amber-500", textColor: "text-yellow-600", bgLight: "bg-yellow-50", borderColor: "border-yellow-200" },
 ];
 
 export interface Nomination {

@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, MapPin, User, Calendar, Tag } from "lucide-react";
+import { ArrowLeft, MapPin, User, Calendar, Tag, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,9 +17,7 @@ const PlaceDetail = () => {
         <Header />
         <div className="pt-24 pb-20 container mx-auto px-4 text-center">
           <h1 className="font-display text-3xl font-bold text-foreground mb-4">Không tìm thấy địa điểm</h1>
-          <Link to="/">
-            <Button variant="default">Về trang chủ</Button>
-          </Link>
+          <Link to="/"><Button variant="default">Về trang chủ</Button></Link>
         </div>
         <Footer />
       </div>
@@ -30,54 +28,92 @@ const PlaceDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <div className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft size={16} /> Quay lại trang chủ
-          </Link>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-            {/* Hero */}
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-primary relative mb-8">
-              <div className="absolute inset-0 flex items-center justify-center text-8xl opacity-20">
-                {category?.icon}
-              </div>
-              <div className="absolute bottom-6 left-6">
-                <span className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-card/90 backdrop-blur-sm text-sm font-medium text-foreground">
-                  {category?.icon} {category?.name}
+      {/* Hero Banner */}
+      <section className="pt-16 relative overflow-hidden">
+        <div className={`absolute inset-0 ${category?.gradient || "bg-gradient-primary"}`} />
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute top-10 right-20 w-48 h-48 rounded-full bg-white blur-3xl animate-float" />
+          <div className="absolute bottom-10 left-20 w-64 h-64 rounded-full bg-white blur-3xl animate-float-slow" />
+        </div>
+        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <path d="M0,0 C360,50 720,10 1440,40 L1440,60 L0,60 Z" fill="hsl(var(--background))" />
+        </svg>
+        <div className="container mx-auto px-4 py-16 relative">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-6">
+              <Link to="/" className="hover:text-primary-foreground transition-colors">Trang chủ</Link>
+              <ChevronRight size={14} />
+              <Link to="/danh-sach" className="hover:text-primary-foreground transition-colors">Danh sách</Link>
+              <ChevronRight size={14} />
+              <span className="text-primary-foreground">{nomination.placeName}</span>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-5xl">{category?.icon}</span>
+              <div>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/20 text-primary-foreground text-sm font-medium backdrop-blur-sm">
+                  {category?.name}
                 </span>
               </div>
             </div>
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
+              {nomination.placeName}
+            </h1>
+            <div className="flex flex-wrap gap-4 text-primary-foreground/80 text-sm">
+              <span className="flex items-center gap-1.5"><MapPin size={15} /> {nomination.placeAddress}</span>
+              <span className="flex items-center gap-1.5"><Calendar size={15} /> {new Date(nomination.createdAt).toLocaleDateString("vi-VN")}</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Info */}
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {nomination.placeName}
-              </h1>
+      <div className="pb-20 -mt-4">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+            {/* Info Card */}
+            <div className="bg-card rounded-2xl shadow-colorful overflow-hidden">
+              {/* Top gradient accent */}
+              <div className={`h-1.5 bg-gradient-to-r ${category?.color || "from-primary to-primary"}`} />
 
-              <div className="flex flex-wrap gap-4 mb-8 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5"><MapPin size={15} /> {nomination.placeAddress}</span>
-                <span className="flex items-center gap-1.5"><Tag size={15} /> {category?.name}</span>
-                <span className="flex items-center gap-1.5"><Calendar size={15} /> {new Date(nomination.createdAt).toLocaleDateString("vi-VN")}</span>
-              </div>
-
-              <div className="border-t border-border pt-6 mb-8">
-                <h2 className="font-display text-xl font-semibold text-foreground mb-4">Mô tả</h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{nomination.description}</p>
-              </div>
-
-              <div className="border-t border-border pt-6">
-                <h2 className="font-display text-xl font-semibold text-foreground mb-4">Người đề cử</h2>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
-                    <User size={18} className="text-primary-foreground" />
+              <div className="p-8">
+                {/* Description */}
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-8 h-8 rounded-lg ${category?.gradient || "bg-gradient-primary"} flex items-center justify-center`}>
+                      <Tag size={16} className="text-white" />
+                    </div>
+                    <h2 className="font-display text-xl font-semibold text-foreground">Mô tả</h2>
                   </div>
-                  <div>
-                    <p className="font-medium text-foreground">{nomination.fullName}</p>
-                    <p className="text-sm text-muted-foreground">{nomination.address}</p>
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line pl-11">{nomination.description}</p>
+                </div>
+
+                <div className="border-t border-border pt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-sunset flex items-center justify-center">
+                      <User size={16} className="text-white" />
+                    </div>
+                    <h2 className="font-display text-xl font-semibold text-foreground">Người đề cử</h2>
+                  </div>
+                  <div className="flex items-center gap-3 pl-11">
+                    <div className={`w-10 h-10 rounded-full ${category?.gradient || "bg-gradient-primary"} flex items-center justify-center`}>
+                      <User size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">{nomination.fullName}</p>
+                      <p className="text-sm text-muted-foreground">{nomination.address}</p>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Back link */}
+            <div className="mt-8 text-center">
+              <Link to="/danh-sach">
+                <Button variant="outline" className="gap-2">
+                  <ArrowLeft size={16} /> Quay lại danh sách
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
