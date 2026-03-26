@@ -93,7 +93,7 @@ const Index = () => {
             <p className="text-muted-foreground text-lg">Khám phá và đề cử theo từng chủ đề</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {CATEGORIES.map((cat, i) => (
               <motion.div
                 key={cat.id}
