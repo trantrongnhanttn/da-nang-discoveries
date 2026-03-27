@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
@@ -14,10 +14,32 @@ const NAV_ITEMS = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      setIsDark(true);
+    }
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md">
-      {/* Gradient border bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent" />
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2">
@@ -44,6 +66,13 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ml-1"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
           <Link to="/de-cu">
             <Button variant="hero" size="sm" className="ml-2">
               Đề cử ngay
@@ -51,12 +80,21 @@ const Header = () => {
           </Link>
         </nav>
 
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 text-foreground"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
