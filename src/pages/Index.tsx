@@ -145,6 +145,164 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Lộ Trình Chương Trình */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-background to-secondary/[0.04]" />
+        {/* Decorative travel icons */}
+        <div className="absolute top-20 right-[6%] text-primary/8 animate-float-slow">
+          <Compass size={50} />
+        </div>
+        <div className="absolute bottom-16 left-[6%] text-secondary/8 animate-float">
+          <MapPin size={42} />
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              Lộ trình
+            </Badge>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Lộ Trình <span className="text-gradient-primary">Chương Trình</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              3 giai đoạn triển khai trong năm 2026
+            </p>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent md:-translate-x-px" />
+
+            {/* Phase 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative flex flex-col md:flex-row items-start md:items-center mb-16 group"
+            >
+              {/* Content - Left side on desktop */}
+              <div className="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0 order-2 md:order-1">
+                <Card className="bg-card/80 backdrop-blur-sm border-border shadow-card hover:shadow-colorful transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-500" />
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 md:justify-end mb-2">
+                      <Rocket className="text-primary" size={18} />
+                      <span className="text-sm font-semibold text-primary">Tháng 04/2026</span>
+                    </div>
+                    <CardTitle className="text-foreground text-xl mb-3">Phát động & Đề xuất</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">
+                      Cá nhân, tổ chức đề xuất các "điểm chạm" theo 6 nhóm nội dung trên website chương trình.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Number circle */}
+              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 order-1 md:order-2">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30"
+                >
+                  1
+                </motion.div>
+              </div>
+
+              {/* Empty right side on desktop */}
+              <div className="md:w-1/2 md:pl-12 order-3 hidden md:block" />
+            </motion.div>
+
+            {/* Phase 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+              className="relative flex flex-col md:flex-row items-start md:items-center mb-16 group"
+            >
+              {/* Empty left side on desktop */}
+              <div className="md:w-1/2 md:pr-12 order-1 hidden md:block" />
+
+              {/* Number circle */}
+              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 order-1 md:order-2">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-secondary/30"
+                >
+                  2
+                </motion.div>
+              </div>
+
+              {/* Content - Right side on desktop */}
+              <div className="md:w-1/2 md:pl-12 pl-16 order-2 md:order-3">
+                <Card className="bg-card/80 backdrop-blur-sm border-border shadow-card hover:shadow-colorful transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-rose-500" />
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Vote className="text-secondary" size={18} />
+                      <span className="text-sm font-semibold text-secondary">Tháng 05–06/2026</span>
+                    </div>
+                    <CardTitle className="text-foreground text-xl mb-3">Bình chọn cộng đồng</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">
+                      Bình chọn công khai trên website. Mỗi email được bình chọn cho nhiều điểm chạm, xác thực qua OTP.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Phase 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="relative flex flex-col md:flex-row items-start md:items-center group"
+            >
+              {/* Content - Left side on desktop */}
+              <div className="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0 order-2 md:order-1">
+                <Card className="bg-card/80 backdrop-blur-sm border-border shadow-card hover:shadow-colorful transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-500" />
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 md:justify-end mb-2">
+                      <Megaphone className="text-accent" size={18} />
+                      <span className="text-sm font-semibold text-accent">Tháng 06–07/2026</span>
+                    </div>
+                    <CardTitle className="text-foreground text-xl mb-3">Công bố & Truyền thông</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">
+                      Công bố chính thức "Top 100 điểm Chạm Đà Nẵng" theo nhóm chủ đề, không xếp hạng thứ tự.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Number circle */}
+              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 order-1 md:order-2">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-accent/30"
+                >
+                  3
+                </motion.div>
+              </div>
+
+              {/* Checkmark finale */}
+              <div className="md:w-1/2 md:pl-12 order-3 hidden md:flex items-center">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
+                >
+                  <CheckCircle2 className="text-accent/30" size={48} />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <Separator className="mx-auto max-w-5xl" />
 
       {/* Hạng mục - with travel icons */}
