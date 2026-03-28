@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Send, Star, Users, MapPin, Compass, Palmtree, UtensilsCrossed, Camera, Mountain, Heart, PartyPopper, Rocket, Vote, Megaphone, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Send, Star, Users, MapPin, Compass, Palmtree, UtensilsCrossed, Camera, Mountain, Heart, PartyPopper, Rocket, Vote, Megaphone, CheckCircle2, ClipboardList, ThumbsUp, LayoutGrid, Target } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
@@ -81,6 +81,46 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSlider />
+
+      {/* Thống kê */}
+      <section className="py-16 relative overflow-hidden bg-gradient-to-r from-primary/[0.06] via-background to-secondary/[0.06]">
+        <div className="container mx-auto px-4 relative">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: ClipboardList, value: "0", label: "Đề cử", gradient: "from-cyan-400 to-blue-500" },
+              { icon: ThumbsUp, value: "0", label: "Bình chọn", gradient: "from-orange-400 to-rose-500" },
+              { icon: LayoutGrid, value: "6", label: "Hạng mục", gradient: "from-purple-400 to-pink-500" },
+              { icon: Target, value: "100", label: "Mục tiêu", gradient: "from-emerald-400 to-teal-500" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Card className="bg-card/80 backdrop-blur-sm border-border shadow-card hover:shadow-colorful transition-all duration-300 text-center group">
+                  <CardContent className="pt-8 pb-6 px-4">
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <stat.icon className="text-white" size={26} />
+                    </div>
+                    <motion.p
+                      className="text-4xl md:text-5xl font-bold text-foreground mb-1"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
+                    >
+                      {stat.value}
+                    </motion.p>
+                    <p className="text-muted-foreground font-medium text-sm">{stat.label}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Giới thiệu chung - Travel pattern background */}
       <section ref={aboutRef} className="py-20 relative overflow-hidden">
