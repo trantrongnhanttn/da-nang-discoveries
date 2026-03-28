@@ -94,11 +94,34 @@ const Header = () => {
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <Link to="/de-cu">
-            <Button variant="hero" size="sm" className="ml-2">
-              Đề cử ngay
-            </Button>
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-2 ml-2">
+              <span className="text-sm text-muted-foreground hidden lg:inline">
+                {user.user_metadata?.full_name || user.email}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                title="Đăng xuất"
+              >
+                <LogOut size={18} />
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1 ml-2">
+              <Link to="/dang-nhap">
+                <Button variant="ghost" size="sm" className="gap-1">
+                  <LogIn size={16} />
+                  Đăng nhập
+                </Button>
+              </Link>
+              <Link to="/dang-ky">
+                <Button variant="hero" size="sm">
+                  Đăng ký
+                </Button>
+              </Link>
+            </div>
+          )}
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
