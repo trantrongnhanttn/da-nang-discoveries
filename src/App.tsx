@@ -10,6 +10,9 @@ import PlaceDetail from "./pages/PlaceDetail.tsx";
 import CategoryDetail from "./pages/CategoryDetail.tsx";
 import Rules from "./pages/Rules.tsx";
 import News from "./pages/News.tsx";
+import Login from "./pages/Login.tsx";
+import Register from "./pages/Register.tsx";
+import VerifyOTP from "./pages/VerifyOTP.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
