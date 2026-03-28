@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Send, Star, Users, MapPin, Compass, Palmtree, UtensilsCrossed, Camera, Mountain, Heart, PartyPopper, Rocket, Vote, Megaphone, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Send, Star, Users, MapPin, Compass, Palmtree, UtensilsCrossed, Camera, Mountain, Heart, PartyPopper, Rocket, Vote, Megaphone, CheckCircle2, ClipboardList, ThumbsUp, LayoutGrid, Target } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
