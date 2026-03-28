@@ -10,6 +10,9 @@ import PlaceDetail from "./pages/PlaceDetail.tsx";
 import CategoryDetail from "./pages/CategoryDetail.tsx";
 import Rules from "./pages/Rules.tsx";
 import News from "./pages/News.tsx";
+import Login from "./pages/Login.tsx";
+import Register from "./pages/Register.tsx";
+import VerifyOTP from "./pages/VerifyOTP.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/hang-muc/:id" element={<CategoryDetail />} />
           <Route path="/the-le" element={<Rules />} />
           <Route path="/tin-tuc" element={<News />} />
+          <Route path="/dang-nhap" element={<Login />} />
+          <Route path="/dang-ky" element={<Register />} />
+          <Route path="/xac-thuc-otp" element={<VerifyOTP />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

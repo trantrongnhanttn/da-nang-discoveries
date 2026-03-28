@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Moon, Sun, LogIn, LogOut, UserCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import type { User } from "@supabase/supabase-js";
+
 import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
@@ -13,7 +16,9 @@ const NAV_ITEMS = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
       return document.documentElement.classList.contains("dark");
@@ -37,6 +42,22 @@ const Header = () => {
       setIsDark(true);
     }
   }, []);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    navigate("/");
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md">
@@ -73,11 +94,34 @@ const Header = () => {
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <Link to="/de-cu">
-            <Button variant="hero" size="sm" className="ml-2">
-              Đề cử ngay
-            </Button>
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-2 ml-2">
+              <span className="text-sm text-muted-foreground hidden lg:inline">
+                {user.user_metadata?.full_name || user.email}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                title="Đăng xuất"
+              >
+                <LogOut size={18} />
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1 ml-2">
+              <Link to="/dang-nhap">
+                <Button variant="ghost" size="sm" className="gap-1">
+                  <LogIn size={16} />
+                  Đăng nhập
+                </Button>
+              </Link>
+              <Link to="/dang-ky">
+                <Button variant="hero" size="sm">
+                  Đăng ký
+                </Button>
+              </Link>
+            </div>
+          )}
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -114,11 +158,29 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/de-cu" onClick={() => setIsOpen(false)}>
-              <Button variant="hero" size="sm" className="w-full mt-2">
-                Đề cử ngay
-              </Button>
-            </Link>
+            {user ? (
+              <button
+                onClick={() => { handleLogout(); setIsOpen(false); }}
+                className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+              >
+                <LogOut size={16} />
+                Đăng xuất
+              </button>
+            ) : (
+              <>
+                <Link to="/dang-nhap" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" size="sm" className="w-full mt-2 gap-1">
+                    <LogIn size={16} />
+                    Đăng nhập
+                  </Button>
+                </Link>
+                <Link to="/dang-ky" onClick={() => setIsOpen(false)}>
+                  <Button variant="hero" size="sm" className="w-full mt-2">
+                    Đăng ký
+                  </Button>
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       )}
