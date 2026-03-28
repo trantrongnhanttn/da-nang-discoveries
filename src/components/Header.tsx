@@ -158,11 +158,29 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/de-cu" onClick={() => setIsOpen(false)}>
-              <Button variant="hero" size="sm" className="w-full mt-2">
-                Đề cử ngay
-              </Button>
-            </Link>
+            {user ? (
+              <button
+                onClick={() => { handleLogout(); setIsOpen(false); }}
+                className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+              >
+                <LogOut size={16} />
+                Đăng xuất
+              </button>
+            ) : (
+              <>
+                <Link to="/dang-nhap" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" size="sm" className="w-full mt-2 gap-1">
+                    <LogIn size={16} />
+                    Đăng nhập
+                  </Button>
+                </Link>
+                <Link to="/dang-ky" onClick={() => setIsOpen(false)}>
+                  <Button variant="hero" size="sm" className="w-full mt-2">
+                    Đăng ký
+                  </Button>
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       )}
