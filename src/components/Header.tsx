@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Moon, Sun, LogIn, LogOut, UserCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User } from "@supabase/supabase-js";
-import { Menu, X, Moon, Sun } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
