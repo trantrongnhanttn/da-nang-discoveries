@@ -31,6 +31,9 @@ const App = () => (
           <Route path="/hang-muc/:id" element={<CategoryDetail />} />
           <Route path="/the-le" element={<Rules />} />
           <Route path="/tin-tuc" element={<News />} />
+          <Route path="/dang-nhap" element={<Login />} />
+          <Route path="/dang-ky" element={<Register />} />
+          <Route path="/xac-thuc-otp" element={<VerifyOTP />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
