@@ -200,7 +200,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Cầu Rồng",
     placeAddress: "Sông Hàn, Đà Nẵng",
     createdAt: "2024-03-15",
-  },
+    votes: 128,
   {
     id: "2",
     fullName: "Trần Thị Bình",
