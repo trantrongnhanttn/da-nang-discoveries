@@ -229,6 +229,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeAddress: "Ngũ Hành Sơn, Đà Nẵng",
     createdAt: "2024-03-13",
     votes: 210,
+  },
   {
     id: "4",
     fullName: "Phạm Thị Dung",
