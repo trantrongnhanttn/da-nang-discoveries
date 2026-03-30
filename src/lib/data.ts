@@ -239,7 +239,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Bà Nà Hills",
     placeAddress: "Hòa Ninh, Hòa Vang, Đà Nẵng",
     createdAt: "2024-03-12",
-  },
+    votes: 175,
   {
     id: "5",
     fullName: "Hoàng Văn Em",
