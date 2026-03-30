@@ -184,6 +184,7 @@ export interface Nomination {
   placeName: string;
   placeAddress: string;
   createdAt: string;
+  votes: number;
 }
 
 export const SAMPLE_NOMINATIONS: Nomination[] = [
@@ -199,6 +200,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Cầu Rồng",
     placeAddress: "Sông Hàn, Đà Nẵng",
     createdAt: "2024-03-15",
+    votes: 128,
   },
   {
     id: "2",
@@ -212,6 +214,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Bún chả cá Bà Hường",
     placeAddress: "107 Hoàng Diệu, Hải Châu, Đà Nẵng",
     createdAt: "2024-03-14",
+    votes: 95,
   },
   {
     id: "3",
@@ -225,6 +228,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Ngũ Hành Sơn",
     placeAddress: "Ngũ Hành Sơn, Đà Nẵng",
     createdAt: "2024-03-13",
+    votes: 210,
   },
   {
     id: "4",
@@ -238,6 +242,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Bà Nà Hills",
     placeAddress: "Hòa Ninh, Hòa Vang, Đà Nẵng",
     createdAt: "2024-03-12",
+    votes: 175,
   },
   {
     id: "5",
@@ -251,6 +256,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Bãi biển Mỹ Khê",
     placeAddress: "Phước Mỹ, Sơn Trà, Đà Nẵng",
     createdAt: "2024-03-11",
+    votes: 302,
   },
   {
     id: "6",
@@ -264,6 +270,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Lễ hội pháo hoa quốc tế DIFF",
     placeAddress: "Bờ sông Hàn, Đà Nẵng",
     createdAt: "2024-03-10",
+    votes: 88,
   },
   {
     id: "7",
@@ -277,6 +284,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Làng đá mỹ nghệ Non Nước",
     placeAddress: "Ngũ Hành Sơn, Đà Nẵng",
     createdAt: "2024-03-09",
+    votes: 156,
   },
   {
     id: "8",
@@ -290,6 +298,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Chùa Linh Ứng Sơn Trà",
     placeAddress: "Bán đảo Sơn Trà, Đà Nẵng",
     createdAt: "2024-03-08",
+    votes: 67,
   },
   {
     id: "9",
@@ -303,6 +312,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Chợ Hàn",
     placeAddress: "119 Trần Phú, Hải Châu, Đà Nẵng",
     createdAt: "2024-03-07",
+    votes: 143,
   },
 ];
 
