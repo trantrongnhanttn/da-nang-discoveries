@@ -271,6 +271,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeAddress: "Bờ sông Hàn, Đà Nẵng",
     createdAt: "2024-03-10",
     votes: 88,
+  },
   {
     id: "7",
     fullName: "Đặng Văn Giang",
