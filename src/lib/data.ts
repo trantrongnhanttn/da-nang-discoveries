@@ -313,6 +313,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeAddress: "119 Trần Phú, Hải Châu, Đà Nẵng",
     createdAt: "2024-03-07",
     votes: 143,
+  },
 ];
 
 export interface NewsItem {
