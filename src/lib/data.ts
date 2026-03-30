@@ -184,6 +184,7 @@ export interface Nomination {
   placeName: string;
   placeAddress: string;
   createdAt: string;
+  votes: number;
 }
 
 export const SAMPLE_NOMINATIONS: Nomination[] = [
