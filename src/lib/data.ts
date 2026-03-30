@@ -215,6 +215,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeAddress: "107 Hoàng Diệu, Hải Châu, Đà Nẵng",
     createdAt: "2024-03-14",
     votes: 95,
+  },
   {
     id: "3",
     fullName: "Lê Minh Cường",
