@@ -257,6 +257,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeAddress: "Phước Mỹ, Sơn Trà, Đà Nẵng",
     createdAt: "2024-03-11",
     votes: 302,
+  },
   {
     id: "6",
     fullName: "Võ Thị Fương",
