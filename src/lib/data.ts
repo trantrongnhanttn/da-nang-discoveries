@@ -291,7 +291,7 @@ export const SAMPLE_NOMINATIONS: Nomination[] = [
     placeName: "Chùa Linh Ứng Sơn Trà",
     placeAddress: "Bán đảo Sơn Trà, Đà Nẵng",
     createdAt: "2024-03-08",
-  },
+    votes: 67,
   {
     id: "9",
     fullName: "Trương Văn Khoa",
